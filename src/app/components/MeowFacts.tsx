@@ -11,7 +11,8 @@ const fetchMeowFacts = async () => {
 
 const MeowFacts = () => {
   const [meowFact, setMeowFact] = useState<any>();
-
+  const factId = Math.floor(Math.random() * 100);
+  console.log(`Here is the fact Id`, factId);
   const fetchFact = async () => {
     const receivedFact = await fetchMeowFacts();
     setMeowFact(receivedFact.data[0]);
