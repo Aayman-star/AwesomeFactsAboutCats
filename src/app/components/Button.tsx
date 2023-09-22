@@ -13,7 +13,7 @@ const Button = ({ ClickFunction }: Prop) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-7 h-7 text-green-500 bg-zinc-700 p-1 rounded-md shadow-md">
+          className="w-7 h-7 text-2xl font-bold">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
