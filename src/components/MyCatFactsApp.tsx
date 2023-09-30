@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import MeowFacts from "./MeowFacts";
 import getRandomId from "./GetRandomId";
 
-const randomId = () => Math.floor(Math.random() * 90);
+//For now I have hard-coded the minimum and maximum values of the ids,using the all inclusive formula
+//Math.floor(Math.random() * (max - min + 1) + min);
+const randomFactId = () => Math.floor(Math.random() * (90 - 1 + 1) + 1);
 
 const MyCatFactsApp = () => {
-  const [factId, setFactId] = useState<number>(randomId());
+  const [factId, setFactId] = useState<number>(randomFactId());
+  //   const [factId, setFactId] = useState<number>(2);
   //   useEffect(() => {
   //     setFactId(randomId());
   //   }, []);

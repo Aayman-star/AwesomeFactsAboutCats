@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 const fetchMeowFacts = async (id: number) => {
-  console.log(`The Id received in the fetch function is :${id}`);
+  //console.log(`The Id received in the fetch function is :${id}`);
   const url = `https://meowfacts.herokuapp.com/?id=${id}`;
   const fact = await fetch(url, { cache: "no-store" });
   const Fact = await fact.json();
@@ -21,7 +21,7 @@ interface IdProp {
 }
 
 const MeowFacts = ({ factId }: IdProp) => {
-  console.log(`Received Fact Id from the main component : ${factId}`);
+  //console.log(`Received Fact Id from the main component : ${factId}`);
   useEffect(() => {
     fetchFact();
   }, []);
@@ -32,26 +32,28 @@ const MeowFacts = ({ factId }: IdProp) => {
   // }, [factId]);
 
   //console.log(`The local fact Id is :${localfactId}`);
+  //This is the function to fetch the nextfact ;goes upto 90
+  const nextFact = async () => {
+    const tempId = localfactId === 90 ? 1 : localfactId + 1;
+    //console.log(`current Fact ID`, localfactId);
+    const receivedFact = await fetchMeowFacts(tempId);
+    setMeowFact(receivedFact.data[0]);
+    setlocalFactId(tempId);
+  };
+  //This is the function to fetch the previous fact,goes upto 1
+  const prevFact = async () => {
+    const tempId = localfactId === 1 ? 90 : localfactId - 1;
+    //console.log(`current Fact ID`, localfactId);
+    const receivedFact = await fetchMeowFacts(tempId);
+    setMeowFact(receivedFact.data[0]);
+    setlocalFactId(tempId);
+  };
 
-  // const nextFact = async () => {
-  //   console.log(`current Fact ID`, localfactId);
-  //   const receivedFact = await fetchMeowFacts(localfactId + 1);
-  //   setMeowFact(receivedFact.data[0]);
-  //   setlocalFactId(localfactId === 90 ? 1 : localfactId + 1);
-  // };
-  // const prevFact = async () => {
-  //   console.log(`current Fact ID`, localfactId);
-  //   const receivedFact = await fetchMeowFacts(
-  //     localfactId === 0 ? 90 : localfactId - 1
-  //   );
-  //   setMeowFact(receivedFact.data[0]);
-  //   setlocalFactId(localfactId === 0 ? 90 : localfactId - 1);
-  // };
-
+  //This function runs first and fetches fact according to the Id provided by the parent component
   const fetchFact = async () => {
-    console.log(
-      `The value received in the fetch function inside the fetchFact function:${factId}`
-    );
+    // console.log(
+    //   `The value received in the fetch function inside the fetchFact function:${factId}`
+    // );
     setlocalFactId(factId);
     const receivedFact = await fetchMeowFacts(localfactId);
     setMeowFact(receivedFact.data[0]);
@@ -63,21 +65,21 @@ const MeowFacts = ({ factId }: IdProp) => {
     <div className="bg-zinc-50 w-full h-screen p-2 flex flex-col items-center">
       <div className="bg-white border-2 border-zinc-800 mt-32 md:mt-40 px-6 rounded-md flex flex-col items-center justify-center shadow-xl md:w-[650px] md:flex-row-reverse md:items-center md:justify-around">
         <div>
-          {/* <button onClick={nextFact}>
+          <button onClick={nextFact}>
             <ChevronUpIcon className="w-7 h-7 text-2xl font-extrabold text-zinc-900 md:hidden" />
             <ChevronDoubleRightIcon className="hidden w-10 h-10 text-zinc-900 font-extrabold text-2xl md:block" />
-          </button> */}
+          </button>
         </div>
 
         <p className="text-zinc-700 font-light text-xl italic m-6 md:text-2xl">
           {meowFact}
         </p>
         <div>
-          {/* <button onClick={prevFact}>
+          <button onClick={prevFact}>
             <ChevronDownIcon className="w-7 h-7 text-2xl font-extrabold text-zinc-900 md:hidden" />
 
             <ChevronDoubleLeftIcon className="hidden w-10 h-10 text-zinc-900 font-extrabold text-2xl md:block" />
-          </button> */}
+          </button>
         </div>
       </div>
     </div>
