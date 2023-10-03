@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Button from "./Button";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import Loading from "./Loading";
 
 import {
   ChevronDoubleRightIcon,
@@ -62,26 +63,29 @@ const MeowFacts = ({ factId }: IdProp) => {
 
   // }, []);
   return (
-    <div className="bg-zinc-50 w-full h-screen p-2 flex flex-col items-center">
-      <div className="bg-white border-2 border-zinc-800 mt-32 md:mt-40 px-6 rounded-md flex flex-col items-center justify-center shadow-xl md:w-[650px] md:flex-row-reverse md:items-center md:justify-around">
-        <div>
-          <button onClick={nextFact}>
-            <ChevronUpIcon className="w-7 h-7 text-2xl font-extrabold text-zinc-900 md:hidden" />
-            <ChevronDoubleRightIcon className="hidden w-10 h-10 text-zinc-900 font-extrabold text-2xl md:block" />
-          </button>
-        </div>
+    <div className="p-2  h-full grid place-content-center">
+      <Suspense fallback={<Loading />}>
+        <div className="bg-neutral-50/40 text-green-900 p-2  md:p-4 rounded-md flex flex-col items-center justify-center shadow-xl md:w-[650px] md:flex-row-reverse md:items-center md:justify-around">
+          <div>
+            <button onClick={nextFact}>
+              <ChevronUpIcon className="w-7 h-7 text-2xl font-extrabold text-green-900 border-2 border-green-900 rounded-full md:hidden" />
+              <ChevronDoubleRightIcon className="hidden w-10 h-10 text-green-900 font-extrabold text-2xl md:block" />
+            </button>
+          </div>
 
-        <p className="text-zinc-700 font-light text-xl italic m-6 md:text-2xl">
-          {meowFact}
-        </p>
-        <div>
-          <button onClick={prevFact}>
-            <ChevronDownIcon className="w-7 h-7 text-2xl font-extrabold text-zinc-900 md:hidden" />
+          <p className="font-light text-xl italic m-6 md:text-2xl">
+            {meowFact}
+          </p>
 
-            <ChevronDoubleLeftIcon className="hidden w-10 h-10 text-zinc-900 font-extrabold text-2xl md:block" />
-          </button>
+          <div>
+            <button onClick={prevFact}>
+              <ChevronDownIcon className="w-7 h-7 text-2xl font-extrabold text-green-900 border-2 border-green-900 rounded-full md:hidden" />
+
+              <ChevronDoubleLeftIcon className="hidden w-10 h-10 text-green-900 font-extrabold text-2xl md:block" />
+            </button>
+          </div>
         </div>
-      </div>
+      </Suspense>
     </div>
   );
 };
