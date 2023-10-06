@@ -23,7 +23,7 @@ const MyCatFactsApp = () => {
   console.log(`Here is the fact Id`, factId);
 
   return (
-    <main className="relative h-screen">
+    <main className="relative min-h-screen">
       <div className="absolute inset-0">
         <Image
           src={CatBg2}
