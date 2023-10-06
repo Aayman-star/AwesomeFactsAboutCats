@@ -63,7 +63,7 @@ const MeowFacts = ({ factId }: IdProp) => {
 
   // }, []);
   return (
-    <div className="p-2  h-full grid place-content-center">
+    <div className="p-2  min-h-screen grid place-content-center">
       <Suspense fallback={<Loading />}>
         <div className="bg-neutral-50/40 text-green-900 p-2  md:p-4 rounded-md flex flex-col items-center justify-center shadow-xl md:w-[650px] md:flex-row-reverse md:items-center md:justify-around">
           <div>
