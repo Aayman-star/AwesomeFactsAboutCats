@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, use } from "react";
 import Button from "./Button";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import Loading from "./Loading";
@@ -26,6 +26,7 @@ const MeowFacts = ({ factId }: IdProp) => {
   useEffect(() => {
     fetchFact();
   }, []);
+
   const [meowFact, setMeowFact] = useState<any>();
   const [localfactId, setlocalFactId] = useState(factId);
   // useEffect(() => {
@@ -64,28 +65,31 @@ const MeowFacts = ({ factId }: IdProp) => {
   // }, []);
   return (
     <div className="p-2  min-h-screen grid place-content-center">
-      <Suspense fallback={<Loading />}>
-        <div className="bg-neutral-50/40 text-green-900 p-2  md:p-4 rounded-md flex flex-col items-center justify-center shadow-xl md:w-[650px] md:flex-row-reverse md:items-center md:justify-around">
-          <div>
-            <button onClick={nextFact}>
-              <ChevronUpIcon className="w-7 h-7 text-2xl font-extrabold text-green-900 border-2 border-green-900 rounded-full md:hidden" />
-              <ChevronDoubleRightIcon className="hidden w-10 h-10 text-green-900 font-extrabold text-2xl md:block" />
-            </button>
-          </div>
-
+      <div className="bg-neutral-50/40 text-green-900 p-2  md:p-4 rounded-md flex flex-col items-center justify-center shadow-xl md:w-[650px] md:flex-row-reverse md:items-center md:justify-around">
+        <div>
+          <button onClick={nextFact}>
+            <ChevronUpIcon className="w-7 h-7 text-2xl font-extrabold text-green-900 border-2 border-green-900 rounded-full md:hidden" />
+            <ChevronDoubleRightIcon className="hidden w-10 h-10 text-green-900 font-extrabold text-2xl md:block" />
+          </button>
+        </div>
+        <Suspense
+          fallback={
+            <div className="p-4 bg-slate-50 grid place-content-center">
+              <p className="text-green-950 font-bold text-2xl">Hello there</p>
+            </div>
+          }>
           <p className="font-light text-xl italic m-6 md:text-2xl">
             {meowFact}
           </p>
+        </Suspense>
+        <div>
+          <button onClick={prevFact}>
+            <ChevronDownIcon className="w-7 h-7 text-2xl font-extrabold text-green-900 border-2 border-green-900 rounded-full md:hidden" />
 
-          <div>
-            <button onClick={prevFact}>
-              <ChevronDownIcon className="w-7 h-7 text-2xl font-extrabold text-green-900 border-2 border-green-900 rounded-full md:hidden" />
-
-              <ChevronDoubleLeftIcon className="hidden w-10 h-10 text-green-900 font-extrabold text-2xl md:block" />
-            </button>
-          </div>
+            <ChevronDoubleLeftIcon className="hidden w-10 h-10 text-green-900 font-extrabold text-2xl md:block" />
+          </button>
         </div>
-      </Suspense>
+      </div>
     </div>
   );
 };

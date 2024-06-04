@@ -11,16 +11,16 @@ import Footer from "./Footer";
 
 //For now I have hard-coded the minimum and maximum values of the ids,using the all inclusive formula
 //Math.floor(Math.random() * (max - min + 1) + min);
-const randomFactId = () => Math.floor(Math.random() * (90 - 1 + 1) + 1);
+// const randomFactId = () => Math.floor(Math.random() * (90 - 1 + 1) + 1);
 
 const MyCatFactsApp = () => {
-  const [factId, setFactId] = useState<number>(randomFactId());
+  // const [factId, setFactId] = useState<number>(randomFactId());
   //   const [factId, setFactId] = useState<number>(2);
   //   useEffect(() => {
   //     setFactId(randomId());
   //   }, []);
-
-  console.log(`Here is the fact Id`, factId);
+  const randomFactId = Math.floor(Math.random() * (90 - 1 + 1) + 1);
+  console.log(`Here is the fact Id`, randomFactId);
 
   return (
     <main className="relative min-h-screen">
@@ -46,7 +46,7 @@ const MyCatFactsApp = () => {
 
         <div className="w-full md:w-1/2 text-center">
           {" "}
-          <MeowFacts factId={factId} />
+          <MeowFacts factId={randomFactId} />
         </div>
         <div className="w-full">
           <Footer />
