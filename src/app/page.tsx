@@ -8,19 +8,19 @@ import cutie1 from "/public/image/cutie1.png";
 export default function Home() {
   return (
     <main className="w-full min-h-screen  bg-zinc-950 flex flex-col">
-      <header className="w-full md:max-w-xl md:mx-auto rounded-full h-[12vh] bg-zinc-900/50 ">
-        <div className="p-3 ro flex items-center mx-auto  justify-center">
+      <header className="w-full  h-14  fixed top-4  sm:top-[2.125rem]">
+        <div className="w-[90%] mx-auto sm:w-[70%] md:w-[40%]  bg-zinc-900/50  rounded-full border-[1px] border-zinc-800/50 p-4 flex items-center   justify-center">
           <Image
             className=" scale-x-[-1]"
-            height={50}
-            width={50}
+            height={40}
+            width={40}
             src={cutie1}
             alt="cat"
           />{" "}
-          <h1 className="text-4xl font-semibold text-zinc-100/80 text-center ">
+          <h1 className="text-3xl md:text-4xl font-semibold text-zinc-100/80 text-center ">
             Meow Facts
           </h1>
-          <Image className="" height={50} width={50} src={cutie1} alt="cat" />
+          <Image className="" height={40} width={40} src={cutie1} alt="cat" />
         </div>
       </header>
       {/* <MyCatFactsApp /> */}
