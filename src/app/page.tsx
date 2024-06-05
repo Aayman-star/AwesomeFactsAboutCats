@@ -7,9 +7,9 @@ export const dynamic = "force-dynamic";
 import cutie1 from "/public/image/cutie1.png";
 export default function Home() {
   return (
-    <main className="w-full min-h-screen  bg-zinc-950 flex flex-col">
+    <main className="w-full min-h-screen  bg-zinc-950 flex flex-col bg-[url('/jigsaw.svg')]">
       <header className="w-full  h-14  fixed top-4  sm:top-[2.125rem]">
-        <div className="w-[90%] mx-auto sm:w-[70%] md:w-[40%]  bg-zinc-900/50  rounded-full border-[1px] border-zinc-800/50 p-4 flex items-center   justify-center">
+        <div className="w-[90%] mx-auto sm:w-[70%] md:w-[40%]  bg-zinc-900/70  rounded-full border-[1px] border-zinc-800/50 p-4 flex items-center   justify-center">
           <Image
             className=" scale-x-[-1]"
             height={40}
@@ -25,7 +25,7 @@ export default function Home() {
       </header>
       {/* <MyCatFactsApp /> */}
       <Meow />
-      <footer className="w-full md:max-w-5xl md:mx-auto h-[6vh] bg-zinc-950  border-t-[1px] border-zinc-500/50">
+      <footer className="w-full md:max-w-5xl md:mx-auto h-[6vh] bg-zinc-950  border-t-[1px] border-zinc-500/50 bg-[url('/jigsaw.svg')]">
         <p className="text-zinc-100/80 text-center p-1">
           Made with 🤍 by Aayman
         </p>
