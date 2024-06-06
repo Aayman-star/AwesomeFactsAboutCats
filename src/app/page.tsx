@@ -26,7 +26,7 @@ export default function Home() {
         </header>
         {/* <MyCatFactsApp /> */}
         <Meow />
-        <footer className="w-full md:max-w-5xl md:mx-auto h-[6vh]   border-t-[1px] border-zinc-500/50">
+        <footer className="w-full md:max-w-5xl md:mx-auto h-[6vh]   border-t-[1px] border-zinc-500/30">
           <p className="text-zinc-100/80 text-center py-2">
             Made with 🤍 by Aayman
           </p>
