@@ -7,7 +7,7 @@ const fetchMeowFacts = async (id: number) => {
   //console.log(`The Id received in the fetch function is :${id}`);
   try {
     const url = `https://meowfacts.herokuapp.com/?id=${id}`;
-    const fact = await fetch(url, { cache: "no-store" });
+    const fact = await fetch(url);
     const Fact = await fact.json();
     return Fact;
   } catch (err) {
@@ -20,7 +20,7 @@ const Meowsome = async ({ randomFactId }: meProps) => {
   // console.log(fact);
 
   return (
-    <div className="flex flex-col items-center gap-y-4">
+    <div className="flex flex-col items-center gap-y-6">
       <div className="bg-zinc-900/70 p-3 w-[20rem] border-2 border-zinc-900 rounded-full">
         <p className="text-sm text-center">
           Refresh the page to get a meowfact😊
@@ -39,3 +39,4 @@ const Meowsome = async ({ randomFactId }: meProps) => {
 };
 
 export default Meowsome;
+// , { cache: "no-store" }
