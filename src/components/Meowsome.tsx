@@ -1,3 +1,4 @@
+"use client";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
 
 type meProps = {
@@ -18,7 +19,9 @@ const Meowsome = async ({ randomFactId }: meProps) => {
   const fact = await fetchMeowFacts(randomFactId);
 
   // console.log(fact);
-
+  const newFact = () => {
+    location.reload();
+  };
   return (
     <div className="flex flex-col items-center gap-y-6">
       <div className="bg-zinc-900/70 p-3 w-[20rem] border-2 border-zinc-900 rounded-full">
@@ -27,9 +30,15 @@ const Meowsome = async ({ randomFactId }: meProps) => {
         </p>
       </div>
       <div className="w-full m-2  md:m-0 md:w-[60%] md:mx-auto h-auto rounded-lg border-[1px] border-zinc-800/50 bg-zinc-900/70 text-zinc-100/80 p-4 font-thin  transition ease-out delay-150">
-        <p className="border-b-[1px] border-zinc-700/50 pb-2 text-2xl">
-          Fact # {randomFactId}
-        </p>
+        <div className="flex items-center justify-between border-b-[1px] border-zinc-700/50">
+          <p className=" pb-2 text-2xl">Fact # {randomFactId}</p>
+          <button
+            onClick={newFact}
+            className="border-[1px] border-zinc-700/50 px-2 py-1 rounded-full text-sm shadow-sm">
+            New Fact
+          </button>
+        </div>
+
         <div className="w-full flex items-center gap-x-4">
           <p className="mt-2 text-lg md:text-2xl">{fact.data}</p>
         </div>
