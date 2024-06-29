@@ -24,11 +24,11 @@ const Meowsome = async ({ randomFactId }: meProps) => {
   };
   return (
     <div className="flex flex-col items-center gap-y-6">
-      <div className="bg-zinc-900/70 p-3 w-[20rem] border-2 border-zinc-900 rounded-full">
+      {/**<div className="bg-zinc-900/70 p-3 w-[20rem] border-2 border-zinc-900 rounded-full">
         <p className="text-sm text-center">
           Refresh the page to get a meowfact😊
         </p>
-      </div>
+      </div>**/}
       <div className="w-full m-2  md:m-0 md:w-[60%] md:mx-auto h-auto rounded-lg border-[1px] border-zinc-800/50 bg-zinc-900/70 text-zinc-100/80 p-4 font-thin  transition ease-out delay-150">
         <div className="flex items-center justify-between border-b-[1px] border-zinc-700/50">
           <p className=" pb-2 text-2xl">Fact # {randomFactId}</p>
